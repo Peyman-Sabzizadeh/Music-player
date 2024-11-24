@@ -1,0 +1,16 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "description": "Music player app with authentication feature",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build" :"tailwindcss -i ./public/styles/style.css -o ./public/styles/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.15"
+  }
+}
