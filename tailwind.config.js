@@ -4,6 +4,10 @@ module.exports = {
   darkMode:"class",
   theme: {
     extend: {
+      fontFamily:
+      {
+        custom:'Poppins'
+      },
       container:
       {
         center:true,
