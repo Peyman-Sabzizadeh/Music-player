@@ -1,15 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./public/**/*.{html,js}"],
+  content: ["./public/**/*.{html,js}","./index.html"],
   darkMode:"class",
   theme: {
     extend: {
-      fontFamily:
-      {
-        custom:'Poppins'
+      fontFamily:{
+        "Poppins": "Poppins",
+        "PoppinsLight": "Poppins Latin",
+        "PoppinsBold": "PoppinsBold"
       },
-      container:
-      {
+      container:{
         center:true,
         padding:
         {
@@ -28,4 +28,3 @@ module.exports = {
     }
   ],
 }
-

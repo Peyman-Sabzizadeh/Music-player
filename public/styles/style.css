@@ -1,29 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 @layer base
 {
     @font-face{
-
         font-family:"Poppins";
-        src:url("../fonts/Poppins/PoppinsLatin-Bold.ttf")format("truetype");
-        font-weight: 900;
-        font-style: normal;
+        src:url("../fonts/Poppins/PoppinsLatin-Regular.woff2")format("woff2");
     }
     @font-face{
-
-        font-family:"Poppins";
-        src:url("../fonts/Poppins/PoppinsLatin-Regular.ttf")format("truetype");
-        font-weight: 500;
-        font-style: normal;
+        font-family:"Poppins Light";
+        src:url("../fonts/Poppins/PoppinsLatin-Light.woff2")format("woff2");
     }
     @font-face{
-
-        font-family:"Poppins";
-        src:url("../fonts/Poppins/PoppinsLatin-Medium.ttf")format("truetype");
-        font-weight: 400;
-        font-style: normal;
+        font-family:"Poppins Bold";
+        src:url("../fonts/Poppins/PoppinsLatin-Bold.woff2")format("woff2");
     }
 }
