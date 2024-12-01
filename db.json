@@ -1,84 +1,19 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "usrename": "test",
       "password": "123"
     },
     {
-      "id": 2,
+      "id": "2",
       "usrename": "test2",
       "password": "123"
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "mahdiyeh",
       "password": "456"
-    },
-    {
-      "id": 4,
-      "username": "saeed",
-      "password": "9863"
-    },
-    {
-      "id": 5,
-      "username": "saeed",
-      "password": "986"
-    },
-    {
-      "id": 6,
-      "username": "www",
-      "password": "986"
-    },
-    {
-      "id": 6,
-      "username": "www",
-      "password": "986"
-    },
-    {
-      "id": 7,
-      "username": "rrrr",
-      "password": "869"
-    },
-    {
-      "id": 7,
-      "username": "rrrr",
-      "password": "869"
-    },
-    {
-      "id": 8,
-      "username": "test1",
-      "password": "5645"
-    },
-    {
-      "id": 9,
-      "username": "test2",
-      "password": "5645"
-    },
-    {
-      "id": 10,
-      "username": "test2",
-      "password": "8956"
-    },
-    {
-      "id": 11,
-      "username": "test2",
-      "password": ""
-    },
-    {
-      "id": 12,
-      "username": "test2",
-      "password": ""
-    },
-    {
-      "id": 12,
-      "username": "test2",
-      "password": ""
-    },
-    {
-      "id": 13,
-      "username": "test2",
-      "password": ""
     }
   ]
 }

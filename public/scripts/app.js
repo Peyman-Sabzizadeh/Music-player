@@ -40,14 +40,22 @@ async function registerUser()
     .then(response => response.json())
     .then(data => {
         console.log('کاربر با موفقیت ثبت شد:', data);
-        alert('ثبت‌نام با موفقیت انجام شد!');
-        
+        Swal.fire({
+            title: "success",
+            text: "You registered Successfully",
+            icon: "success",
+            timer:2000
+          });        
         usernameInput.value = "";  
         passwordInput.value = "";
     })
     .catch((error) => {
         console.error('خطا در ثبت‌نام:', error);
-        alert('خطا در ثبت‌نام. لطفا دوباره تلاش کنید.');
-    });
+        Swal.fire({
+            title: "error",
+            text: "Oops...Try Again",
+            icon: "error",
+            timer:2000
+          });     });
 }
 signupBtn.addEventListener('click', registerUser);
