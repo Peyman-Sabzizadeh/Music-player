@@ -8,9 +8,10 @@ const loginBtn = $.querySelector(".login-btn")
 async function registerUser()
 {
     // گرفتن اطلاعات
-    const usernameInput = $.querySelector(".username-input").value;
-    const passwordInput = $.querySelector(".password-input").value;
-
+    const usernameInput = $.querySelector(".username-input");
+    const passwordInput = $.querySelector(".password-input");
+    const usernameValue = usernameInput.value;  
+    const passwordValue = passwordInput.value;
      // دریافت کاربران موجود
      const response = await fetch('http://localhost:3000/users');
      const users = await response.json();
@@ -26,8 +27,8 @@ async function registerUser()
       // تعریف بدنه درخواست
       const body = JSON.stringify({
         id: newId,
-        username: usernameInput,
-        password: passwordInput
+        username: usernameValue,
+        password: passwordValue
     });
 
     // ارسال درخواست POST به json-server
@@ -40,10 +41,13 @@ async function registerUser()
     .then(data => {
         console.log('کاربر با موفقیت ثبت شد:', data);
         alert('ثبت‌نام با موفقیت انجام شد!');
+        
+        usernameInput.value = "";  
+        passwordInput.value = "";
     })
     .catch((error) => {
         console.error('خطا در ثبت‌نام:', error);
         alert('خطا در ثبت‌نام. لطفا دوباره تلاش کنید.');
     });
-
 }
+signupBtn.addEventListener('click', registerUser);
