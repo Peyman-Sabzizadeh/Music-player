@@ -70,5 +70,38 @@ async function registerUser() {
         });
     });
 }
+// لاگین کاربر
+async function loginUser() {
+    // دریافت مقادیر ورودی
+    const usernameInput = $.querySelector(".username-input");
+    const passwordInput = $.querySelector(".password-input");
+    const usernameValue = usernameInput.value;  
+    const passwordValue = passwordInput.value;
+
+    // دریافت کاربران موجود
+    const response = await fetch('http://localhost:3000/users');
+    const users = await response.json();
+
+    // بررسی اعتبار کاربر
+    const userExists = users.some(user => user.username === usernameValue && user.password === passwordValue);
+    if (userExists) {
+        Swal.fire({
+            title: "موفقیت",
+            text: "شما با موفقیت وارد شدید!",
+            icon: "success",
+            timer: 2000
+        });
+        usernameInput.value = "";  
+        passwordInput.value = "";
+    } else {
+        Swal.fire({
+            title: "خطا",
+            text: "نام کاربری یا رمز عبور اشتباه است. لطفاً ثبت‌نام کنید.",
+            icon: "error",
+            timer: 2000
+        });
+    }
+}
 
 signupBtn.addEventListener('click', registerUser);
+loginBtn.addEventListener('click', loginUser);
