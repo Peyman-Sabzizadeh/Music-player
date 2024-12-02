@@ -1,31 +1,42 @@
-let $ = document
+const $ = document;
 
-const signupBtn = $.querySelector(".signup-btn")
-const loginBtn = $.querySelector(".login-btn")
-// console.log(usernameInput,passwordInput,signupBtn,loginBtn)
+const signupBtn = $.querySelector(".signup-btn");
+const loginBtn = $.querySelector(".login-btn");
 
-// function
-async function registerUser()
-{
-    // گرفتن اطلاعات
+async function registerUser() {
+    // دریافت مقادیر ورودی
     const usernameInput = $.querySelector(".username-input");
     const passwordInput = $.querySelector(".password-input");
     const usernameValue = usernameInput.value;  
     const passwordValue = passwordInput.value;
-     // دریافت کاربران موجود
-     const response = await fetch('http://localhost:3000/users');
-     const users = await response.json();
 
-     // محاسبه ID جدید
-     const newId = users.length > 0 ? Math.max(...users.map(user => Number(user.id))) + 1 : 1;
-     console.log(newId)
+    // دریافت کاربران موجود
+    const response = await fetch('http://localhost:3000/users');
+    const users = await response.json();
+
+    // بررسی نام کاربری تکراری
+    const usernameExists = users.some(user => user.username === usernameValue);
+    if (usernameExists) {
+        Swal.fire({
+            title: "خطا",
+            text: "این نام کاربری قبلاً استفاده شده است. لطفاً نام کاربری دیگری انتخاب کنید.",
+            icon: "error",
+            timer: 2000
+        });
+        return; // خروج از تابع در صورت وجود نام کاربری
+    }
+
+    // محاسبه ID جدید
+    const newId = users.length > 0 ? Math.max(...users.map(user => Number(user.id))) + 1 : 1;
+    console.log(newId);
+
     // تعریف هدرها
     const headers = {
         "Content-Type": "application/json"
-    }
+    };
 
-      // تعریف بدنه درخواست
-      const body = JSON.stringify({
+    // تعریف بدنه درخواست
+    const body = JSON.stringify({
         id: newId,
         username: usernameValue,
         password: passwordValue
@@ -41,21 +52,23 @@ async function registerUser()
     .then(data => {
         console.log('کاربر با موفقیت ثبت شد:', data);
         Swal.fire({
-            title: "success",
-            text: "You registered Successfully",
+            title: "موفقیت",
+            text: "شما با موفقیت ثبت‌نام کردید",
             icon: "success",
-            timer:2000
-          });        
+            timer: 2000
+        });
         usernameInput.value = "";  
         passwordInput.value = "";
     })
     .catch((error) => {
         console.error('خطا در ثبت‌نام:', error);
         Swal.fire({
-            title: "error",
-            text: "Oops...Try Again",
+            title: "خطا",
+            text: "اوپس... دوباره تلاش کنید",
             icon: "error",
-            timer:2000
-          });     });
+            timer: 2000
+        });
+    });
 }
+
 signupBtn.addEventListener('click', registerUser);
