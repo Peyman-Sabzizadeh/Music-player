@@ -1,19 +1,15 @@
 const $ = document;
-
 const signupBtn = $.querySelector(".signup-btn");
 const loginBtn = $.querySelector(".login-btn");
-
 async function registerUser() {
     // دریافت مقادیر ورودی
     const usernameInput = $.querySelector(".username-input");
     const passwordInput = $.querySelector(".password-input");
     const usernameValue = usernameInput.value;  
     const passwordValue = passwordInput.value;
-
     // دریافت کاربران موجود
     const response = await fetch('http://localhost:3000/users');
     const users = await response.json();
-
     // بررسی نام کاربری تکراری
     const usernameExists = users.some(user => user.username === usernameValue);
     if (usernameExists) {
@@ -25,23 +21,19 @@ async function registerUser() {
         });
         return; // خروج از تابع در صورت وجود نام کاربری
     }
-
     // محاسبه ID جدید
     const newId = users.length > 0 ? Math.max(...users.map(user => Number(user.id))) + 1 : 1;
     console.log(newId);
-
     // تعریف هدرها
     const headers = {
         "Content-Type": "application/json"
     };
-
     // تعریف بدنه درخواست
     const body = JSON.stringify({
         id: newId,
         username: usernameValue,
         password: passwordValue
     });
-
     // ارسال درخواست POST به json-server
     fetch('http://localhost:3000/users', {
         method: 'POST',
@@ -77,7 +69,6 @@ async function loginUser() {
     const passwordInput = $.querySelector(".password-input");
     const usernameValue = usernameInput.value;  
     const passwordValue = passwordInput.value;
-
     // دریافت کاربران موجود
     const response = await fetch('http://localhost:3000/users');
     const users = await response.json();
@@ -102,6 +93,5 @@ async function loginUser() {
         });
     }
 }
-
 signupBtn.addEventListener('click', registerUser);
 loginBtn.addEventListener('click', loginUser);
