@@ -1,7 +1,8 @@
 const $ = document;
 const signupBtn = $.querySelector(".signup-btn");
 const loginBtn = $.querySelector(".login-btn");
-async function registerUser() {
+async function registerUser(e) {
+    e.preventDefault()
     // دریافت مقادیر ورودی
     const usernameInput = $.querySelector(".username-input");
     const passwordInput = $.querySelector(".password-input");
@@ -51,6 +52,9 @@ async function registerUser() {
         });
         usernameInput.value = "";  
         passwordInput.value = "";
+        setTimeout(function () {
+            window.location.href = "./music.html"
+        },2000)
     })
     .catch((error) => {
         console.error('خطا در ثبت‌نام:', error);
@@ -63,7 +67,8 @@ async function registerUser() {
     });
 }
 // لاگین کاربر
-async function loginUser() {
+async function loginUser(e) {
+    e.preventDefault()
     // دریافت مقادیر ورودی
     const usernameInput = $.querySelector(".username-input");
     const passwordInput = $.querySelector(".password-input");
@@ -84,6 +89,9 @@ async function loginUser() {
         });
         usernameInput.value = "";  
         passwordInput.value = "";
+        setTimeout(function () {
+            window.location.href = "./music.html"
+        },2000)
     } else {
         Swal.fire({
             title: "خطا",
