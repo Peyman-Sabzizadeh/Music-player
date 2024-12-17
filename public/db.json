@@ -4,26 +4,6 @@
       "id": "1",
       "username": "test",
       "password": "123"
-    },
-    {
-      "id": "2",
-      "username": "test2",
-      "password": "123"
-    },
-    {
-      "id": "3",
-      "username": "mahdiyeh",
-      "password": "456"
-    },
-    {
-      "id": "4",
-      "username": "test",
-      "password": "852"
-    },
-    {
-      "id": "5",
-      "username": "mahdiyeh_78",
-      "password": "986"
     }
   ]
 }
