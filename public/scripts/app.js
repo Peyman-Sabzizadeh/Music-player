@@ -46,7 +46,7 @@ async function registerUser(e) {
         console.log('کاربر با موفقیت ثبت شد:', data);
         Swal.fire({
             title: "موفقیت",
-            text: "شما با موفقیت ثبت‌نام کردید",
+            text: "...شما با موفقیت ثبت‌نام کردید",
             icon: "success",
             timer: 2000
         });
@@ -84,7 +84,7 @@ async function loginUser(e) {
     if (userExists) {
         Swal.fire({
             title: "موفقیت",
-            text: "شما با موفقیت وارد شدید!",
+            text: "...شما با موفقیت وارد شدید",
             icon: "success",
             timer: 2000
         });
