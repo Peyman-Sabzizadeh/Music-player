@@ -4,7 +4,6 @@ let modeBtn = $.querySelector(".mode")
 let darkIcon = $.querySelector(".dark-icon")
 let lightIcon = $.querySelector(".light-icon")
 let modeFlag = true
-localStorage.setItem("mode", "light")
 const logoutBtn = $.querySelector(".log-out")
 const getUsername = localStorage.getItem("username")
 function setUsername (username) {
@@ -23,11 +22,23 @@ modeBtn.addEventListener("click", function () {
         darkIcon.classList.toggle("hidden")
         lightIcon.classList.toggle("hidden")
         modeFlag = false
-        localStorage.setItem("mode", "dark")
+        localStorage.setItem("mode", "light")
+        document.body.classList.remove("dark")
     }else {
         darkIcon.classList.toggle("hidden")
         lightIcon.classList.toggle("hidden")
         modeFlag = true
-        localStorage.setItem("mode", "light")
+        localStorage.setItem("mode", "dark")
+        document.body.classList.add("dark")
+    }
+})
+window.addEventListener("load", function () {
+    let getMode = localStorage.getItem("mode")
+    if (getMode === "light") {
+        modeFlag = true
+        document.body.classList.remove("dark")
+    }else {
+        modeFlag = false
+        document.body.classList.add("dark")
     }
 })

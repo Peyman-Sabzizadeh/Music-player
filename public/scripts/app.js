@@ -50,7 +50,7 @@ async function registerUser(e) {
             icon: "success",
             timer: 2000
         });
-        localStorage.setItem("Username",usernameValue)
+        localStorage.setItem("username",usernameValue)
         usernameInput.value = "";  
         passwordInput.value = "";
         setTimeout(function () {
@@ -88,7 +88,7 @@ async function loginUser(e) {
             icon: "success",
             timer: 2000
         });
-        localStorage.setItem("Username",usernameValue)
+        localStorage.setItem("username",usernameValue)
         usernameInput.value = "";  
         passwordInput.value = "";
         setTimeout(function () {
