@@ -35,10 +35,10 @@ modeBtn.addEventListener("click", function () {
 window.addEventListener("load", function () {
     let getMode = localStorage.getItem("mode")
     if (getMode === "light") {
-        modeFlag = true
+        modeFlag = false
         document.body.classList.remove("dark")
     }else {
-        modeFlag = false
+        modeFlag = true
         document.body.classList.add("dark")
     }
 })
